@@ -86,9 +86,20 @@ export default function ObraDetail({ params }) {
           )}
 
           <div className="obra-actions">
-            <button className="btn btn-primary" disabled={artwork.sold}>
-              {artwork.sold ? "Obra Vendida" : "Consultar Disponibilidad"}
-            </button>
+            {artwork.sold ? (
+              <button className="btn btn-primary" disabled>
+                Obra Vendida
+              </button>
+            ) : (
+              <a 
+                href={`https://wa.me/50700000000?text=${encodeURIComponent(`Hola La Galería PTY, estoy interesado en adquirir la obra '${artwork.title}' (${artwork.width_cm}x${artwork.height_cm} cm). ¿Podrían confirmarme si sigue disponible?`)}`}
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn btn-primary"
+              >
+                Consultar Disponibilidad
+              </a>
+            )}
             {artwork.hasAR && !activeGlbUrl && (
               <button className="btn btn-outline" onClick={handleGenerateAR} disabled={isGenerating}>
                 {isGenerating ? "Generando 3D..." : "Cargar Vista AR"}

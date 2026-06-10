@@ -19,7 +19,10 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "La Galería PTY | Arte que cobra vida en tu espacio",
+  title: {
+    template: "%s | La Galería PTY",
+    default: "La Galería PTY | Arte que cobra vida en tu espacio",
+  },
   description:
     "Descubre obras de arte únicas y visualízalas en tus paredes con Realidad Aumentada. Galería de arte contemporáneo en Panamá con experiencia inmersiva WebAR.",
   keywords: [
